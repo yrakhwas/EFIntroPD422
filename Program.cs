@@ -5,18 +5,27 @@
         static void Main(string[] args)
         {
             AirLinesDbContext context = new AirLinesDbContext();
-            context.Clients.Add(new Client
-            {
-                Name = "Ivan",
-                Email = "ivan@gmail.com",
-                Birthdate = new DateTime(1990, 1, 1),
-            });
+
+            var filteredClients = context.Clients.Where(c => c.Name == "Petro").OrderBy(c => c.Birthdate);
+
+            //var firstClient = context.Clients.FirstOrDefault();
+            var firstClient = context.Clients.Find(2);
+
+            context.Clients.Remove(firstClient);
+
+            Console.WriteLine("First client : " + firstClient.Name);
+
             context.SaveChanges();
+            Console.WriteLine("Filtered clients : ");
+            foreach (var client in filteredClients)
+            {
+                Console.WriteLine($"Client : {client.Name} - {client.Email} - {client.Birthdate}");
+            }
 
-
+            Console.WriteLine("All of clients : ");
             foreach (var client in context.Clients)
             {
-                Console.WriteLine($"Client : {client.Name} - {client.Email} - {client.Birthdate.ToShortDateString()}");
+                Console.WriteLine($"Client : {client.Name} - {client.Email} - {client.Birthdate}");
             }
         }
     }
