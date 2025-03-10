@@ -58,6 +58,7 @@ namespace EFIntroPD422
         [EmailAddress, Required]
         public string Email { get; set; }
         public DateTime? Birthdate { get; set; }
+        //Navigation property
         public ICollection<Flight> Flights { get; set; }
     }
     class Flight
@@ -69,7 +70,7 @@ namespace EFIntroPD422
         public int AirplaneId { get; set; }
         public string DepartureCity { get; set; }
         public string ArrivalCity { get; set; }
-        //public Airplane Airplain { get; set; }
+        public Airplane Airplain { get; set; }
         public ICollection<Client> Clients { get; set; }
 
     }
