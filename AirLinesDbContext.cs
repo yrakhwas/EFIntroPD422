@@ -33,7 +33,16 @@ namespace EFIntroPD422
                 new Client {Id = 2, Name = "Petro", Email = "petro@gmail.com", Birthdate = new DateTime(1992, 10, 10)},
                 new Client {Id = 3, Name = "Vasyl", Email = "vasyl@gmail.com", Birthdate = new DateTime(1995, 5, 5)}
             });
-            
+            modelBuilder.Entity<Airplane>().Property(a => a.Model).IsRequired();
+            modelBuilder.Entity<Client>().HasKey(c => c.Id);
+            modelBuilder.Entity<Client>().ToTable("FirstName").Property(c => c.Name).HasMaxLength(50).IsRequired();
+            modelBuilder.Entity<Client>().Property(c=>c.Email).HasMaxLength(50).IsRequired();
+            modelBuilder.Entity<Flight>()
+                .HasOne(f => f.Airplane)
+                .WithMany(a => a.Flights)
+                .HasForeignKey(f=>f.AirplaneId);
+
+            modelBuilder.Entity<Flight>().HasMany(f => f.Clients).WithMany(c => c.Flights);
         }
 
 

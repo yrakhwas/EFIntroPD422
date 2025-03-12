@@ -4,6 +4,7 @@ using EFIntroPD422;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EFIntroPD422.Migrations
 {
     [DbContext(typeof(AirLinesDbContext))]
-    partial class AirLinesDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250312140305_make_fluentAPI")]
+    partial class make_fluentAPI
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -70,8 +73,7 @@ namespace EFIntroPD422.Migrations
 
                     b.Property<string>("Email")
                         .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -158,13 +160,11 @@ namespace EFIntroPD422.Migrations
 
             modelBuilder.Entity("EFIntroPD422.Entities.Flight", b =>
                 {
-                    b.HasOne("EFIntroPD422.Entities.Airplane", "Airplane")
+                    b.HasOne("EFIntroPD422.Entities.Airplane", null)
                         .WithMany("Flights")
                         .HasForeignKey("AirplaneId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
-                    b.Navigation("Airplane");
                 });
 
             modelBuilder.Entity("EFIntroPD422.Entities.Airplane", b =>
