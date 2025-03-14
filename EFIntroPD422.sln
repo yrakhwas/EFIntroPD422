@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.13.35825.156 d17.13
+VisualStudioVersion = 17.13.35825.156
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EFIntroPD422", "EFIntroPD422.csproj", "{626B2749-776C-4A99-A815-26D28B3825BC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "data_access", "..\data_access\data_access.csproj", "{56905D7E-2C50-42A5-8332-D7C77AEBD2BB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{626B2749-776C-4A99-A815-26D28B3825BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{626B2749-776C-4A99-A815-26D28B3825BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{626B2749-776C-4A99-A815-26D28B3825BC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{56905D7E-2C50-42A5-8332-D7C77AEBD2BB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{56905D7E-2C50-42A5-8332-D7C77AEBD2BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{56905D7E-2C50-42A5-8332-D7C77AEBD2BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{56905D7E-2C50-42A5-8332-D7C77AEBD2BB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
