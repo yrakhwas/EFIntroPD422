@@ -6,7 +6,13 @@
         {
             AirLinesDbContext context = new AirLinesDbContext();
 
-            
+            var flights = context.Flights.Where(f=>f.ArrivalCity == "Kyiv").OrderBy(f => f.DepartureTime).ToList();
+
+            foreach(var f in flights)
+            {
+                Console.WriteLine($"Flight: #{f.Id}, From {f.ArrivalCity} to {f.DepartureCity} at {f.ArrivalTime.ToShortDateString()}");
+            }
+
 
             context.SaveChanges();
          
