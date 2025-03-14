@@ -1,4 +1,5 @@
 ﻿using EFIntroPD422.Entities;
+using EFIntroPD422.Helpers;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -27,14 +28,9 @@ namespace EFIntroPD422
         {
             base.OnModelCreating(modelBuilder);
 
-            modelBuilder.Entity<Client>().HasData(new Client[]
-            {
-                new Client {Id = 1, Name = "Ivan", Email = "ivan@gmail.com", Birthdate = new DateTime(1990, 1, 1)},
-                new Client {Id = 2, Name = "Petro", Email = "petro@gmail.com", Birthdate = new DateTime(1992, 10, 10)},
-                new Client {Id = 3, Name = "Vasyl", Email = "vasyl@gmail.com", Birthdate = new DateTime(1995, 5, 5)}
-            });
-
-
+            modelBuilder.SeedAirplanes();
+            modelBuilder.SeedClients();
+            modelBuilder.SeedFlights();
 
 
             modelBuilder.Entity<Airplane>().Property(a => a.Model).IsRequired();
