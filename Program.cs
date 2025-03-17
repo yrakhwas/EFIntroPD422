@@ -16,7 +16,7 @@ namespace data_access
                 Console.WriteLine($"Flight: #{f.Id}, From {f.ArrivalCity} to {f.DepartureCity} at {f.ArrivalTime.ToShortDateString()} airplane: {f.Airplane?.Model}");
             }
 
-
+            //fixBugs
             context.SaveChanges();
          
 
